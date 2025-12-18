@@ -1,0 +1,120 @@
+#chatCon {
+  position: fixed;
+  bottom: 25px;
+  right: 10px;
+  z-index: 99999;
+  pointer-events: auto;
+}
+
+#chatCon .chat-box {
+  width: 800px;
+  height: 600px;
+  border-radius: 25px;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 2px solid #000;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#chatCon .chat-box .header {
+  background-color: #f7da7a;
+  padding: 15px;
+  border-radius: 20px 20px 0 0;
+  color: #000;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#chatCon .chat-box .msg-area {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 15px;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.left,
+.right {
+  display: flex;
+  width: 100%;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.left span,
+.right span {
+  display: inline-block;
+  padding: 12px 16px;
+  max-width: 80%;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.left span {
+  background-color: #ddd;
+  color: #000;
+  border-radius: 15px 15px 15px 0;
+}
+
+.right span {
+  background-color: #3fda73;
+  color: #000;
+  border-radius: 15px 15px 0 15px;
+}
+
+#chatCon .chat-box .footer {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  background: #eee;
+  box-sizing: border-box;
+}
+
+#chatCon .chat-box .footer input {
+  flex: 1;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  outline: none;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+#chatCon .chat-box .footer button {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  border: none;
+  background: #f7da7a;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+
+#chatCon .pop {
+  position: fixed;
+  bottom: 25px;
+  right: 10px;
+}
+
+#chatCon .pop p {
+  margin: 0;
+}
