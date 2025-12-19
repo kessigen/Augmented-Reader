@@ -1,5 +1,5 @@
 # Book Reader App (Monorepo)
-
+Link to features + eval code+ tutorial :https://drive.google.com/drive/folders/1WPHCgcoTJ9fmbo3yVLAgOuJV9nqq6AUF?usp=sharing
 ## Structure
 - `backend/` Django API
 - `frontend/` Next.js app
