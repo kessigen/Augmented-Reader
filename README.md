@@ -11,6 +11,7 @@
 ---
 
 ## Backend Setup (Django)
+# initially will be slow as it has to build all vector stores and db structures
 ```powershell
 cd backend
 python -m venv venv
@@ -25,8 +26,8 @@ python manage.py runserver
 
 
 ## Frontend  Setup (Django)
+#in another terminal do:
 cd frontend
 npm install
 
-Copy-Item .env.example .env.local
 npm run dev
