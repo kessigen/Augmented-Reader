@@ -46,7 +46,7 @@ def get_book_metadata(book_id):
     model="gpt-4.1-nano",
     input=[
         {"role": "system",
-          f"content": "You are an expert at analysing and extracting book information .You have been provided the chapter by chapter summary of the book {title}. Your task is to analyse the summary and logically infer book metadata from it."},
+          "content": f"You are an expert at analysing and extracting book information .You have been provided the chapter by chapter summary of the book {title}. Your task is to analyse the summary and logically infer book metadata from it."},
         {
             "role": "user",
             "content": f"Here is the book summary:\n\n {book.summary}",
