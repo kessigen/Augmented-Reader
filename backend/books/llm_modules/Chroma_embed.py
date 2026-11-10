@@ -9,7 +9,7 @@ from django.utils.html import strip_tags
 # Embedding model used to convert chunks into vectors
 embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
 
-#create or get persistent Chroma vector store
+# Create or get persistent Chroma vector store
 vector_store= Chroma(
     collection_name="book_collection",
     embedding_function=embeddings,
@@ -21,13 +21,13 @@ vector_store= Chroma(
 def load_book(book_id):
 
     """
-    Convert book text into chunks which are stored as vector embeddings in chroma DB. This function
+    Convert book text into chunks which are stored as vector embeddings in Chroma DB. This function:
 
 
     - Convert each chapter from HTML to plain text 
-    - Wrap each chapter as a LangChain Document with metadata(book_id,chapter_number)   
-    - Split documents into  chunks using RecursiveCharacterTextSplitter
-    - Store chunks as vector emeddings in chroma
+    - Wrap each chapter as a LangChain Document with metadata (book_id, chapter_number)   
+    - Split documents into chunks using RecursiveCharacterTextSplitter
+    - Store chunks as vector embeddings in Chroma
         - computes embeddings
         - stores vectors + text + metadata on disk
     """

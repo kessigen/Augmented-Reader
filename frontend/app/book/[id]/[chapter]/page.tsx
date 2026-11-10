@@ -32,7 +32,7 @@ export default function BookPage() {
   const [selectedBook, setSelectedBook] = useState<any>(null);
   const [loading, setLoading] = useState(true);
   const [fontSize, setFontSize] = useState<number>(16);
-  // toggle for charcter sheet visibility
+  // toggle for character sheet visibility
   const [showCarousel, setShowCarousel] = useState(false);
   // toggle for relationship graph visibility
   const [showGraph, setShowGraph] = useState(false);
@@ -63,7 +63,7 @@ export default function BookPage() {
     }
   }, [id, chapter]);
 
-  //Fetch  chracter information from backend
+  // Fetch character information from backend
   useEffect(() => {
     const fetchCharacters = async () => {
       try {
@@ -201,7 +201,7 @@ export default function BookPage() {
             {parse(selectedBook.content, {
               replace: (domNode: any) => {
                 {
-                  /* identifies backend injected markers for event separators e.g 'ev01' for processing*/
+                  /* identifies backend injected markers for event separators, e.g. 'ev1', for processing*/
                 }
                 if (
                   domNode.type === "tag" &&

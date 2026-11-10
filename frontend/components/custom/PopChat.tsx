@@ -59,7 +59,7 @@ const PopChat: React.FC<PopChatProps> = ({
     } catch (err) {
       setMessages((prev) => [
         ...prev,
-        { sender: "bot", text: " Could not reach the server." },
+        { sender: "bot", text: "Could not reach the server." },
       ]);
     } finally {
       setLoading(false);

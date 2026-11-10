@@ -25,7 +25,7 @@ export function RecentReads({ books }: any) {
           <div className="flex flex-col justify-center flex-1">
             <CardHeader className="">
               <CardTitle className="text-l">
-                {books?.[0]?.title || "Alice In WonderLand"}
+                {books?.[0]?.title || "Alice in Wonderland"}
               </CardTitle>
               <CardDescription className="">
                 <TagBadges

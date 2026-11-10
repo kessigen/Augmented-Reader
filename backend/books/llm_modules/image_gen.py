@@ -13,12 +13,12 @@ import re
 
 def generate_character_image(character, use_default=False):
     """
-    Generate  a portrait image for a Character model object.
+    Generate a portrait image for a Character model object.
 
     If use_default = True :
          - loads a local file default_character.jpg from MEDIA/uploads/characters/
          - saves it into character.image without calling the LLM API
-        Used to save cost when testing other feaures
+        Used to save cost when testing other features
 
     If use_default = False :
          - Creates a text prompt describing a character`s appearance using Character object fields (name, role, appearance, personality) 
@@ -55,7 +55,7 @@ def generate_character_image(character, use_default=False):
 
         client = OpenAI(api_key=api_key)
 
-        # text description prompt also includes a consistent art style to ensure character style consistency in descriptions.Future implementations to allow custom style
+        # text description prompt also includes a consistent art style to ensure character style consistency in descriptions. Future implementations will allow custom styles
         prompt = ("Your role is to generate the portrait of a fictional character from a book. Details about the character are provided below."
         " Use these details to generate image:"
             f"Portrait of {character.name}, "
@@ -102,7 +102,7 @@ def generate_or_get_scene_image(book_id,chapter_id,event_number):
     - filename convention: scene_<book_id>_<chapter_id>_<event_number>.png
     - if the file already exists, return the MEDIA_URL path immediately
 
-    - OTHERWISE, call scene description API to generate a text description of scene/event.Text description is then passed as input prompt to Image generation API.
+    - OTHERWISE, call scene description API to generate a text description of the scene/event. The text description is then passed as input prompt to Image generation API.
 
     """
 
@@ -121,7 +121,7 @@ def generate_or_get_scene_image(book_id,chapter_id,event_number):
         try:
             image_prompt=""
 
-            #uses book,chapter and event objects to generate text description of scene
+            # Uses book, chapter and event objects to generate text description of scene
             image_prompt=get_scene_description(book_id,chapter_id,event_number)
 
             client = OpenAI()
@@ -160,7 +160,7 @@ def get_scene_description(book_id,chapter_id,event_number):
     Create a detailed text prompt for scene image generation for a given event using the following information:
       - Book inferred metadata: main_genre, time_period, primary_setting
       - Event label + Event summary
-      - Truncated book summary upto current chapter (Context 1)
+      - Truncated book summary up to the current chapter (Context 1)
       - Character list (Context 2) to include names/details when relevant
       - extract full event text based on markers 
 
@@ -188,7 +188,7 @@ def get_scene_description(book_id,chapter_id,event_number):
         end_idx=full_chapter.find(end)
         event_details =full_chapter[start_idx + len(start):end_idx]
 
-    #full book summary upto chapter
+    # Full book summary up to chapter
     context_1= get_chapter_summary(book_id,chapter_id+1)
 
     #list of character info, including description of appearance
@@ -216,7 +216,7 @@ def get_scene_description(book_id,chapter_id,event_number):
     model="gpt-4.1-nano",
     input=[
         {"role": "system",
-          f"content": "You are an expert prompt engineer.Your role is to write a text prompt which will be used as input to an image generation model.The text prompt describes a scene from a chapter of a book called {book.title}. You have been given the part of the chapter where event occurs along with a short description of event. You should generate a prompt for an image generation model that describes  a scene using this event information. You should be descriptive as possible with characters,background and actions since the image generation will only have your prompt and no information on the book.You should only use information currently provided  for generation.You have also been provided extra context information that are only there to give you more context about the event information. CONTEXT 1 is a chapter by chapter summary of book, with the last paragraph being the chapter where the event occurs.CONTEXT 2 is a list of 10 major characters in the book. If a character from list is present in the event, include their name. You should only output the image generation prompt and nothing else. The art style should be: 'detailed fantasy storybook illustration, warm lighting, expressive' "},
+          f"content": "You are an expert prompt engineer. Your role is to write a text prompt which will be used as input to an image generation model. The text prompt describes a scene from a chapter of a book called {book.title}. You have been given the part of the chapter where event occurs along with a short description of event. You should generate a prompt for an image generation model that describes a scene using this event information. You should be as descriptive as possible with characters, background and actions since the image generation will only have your prompt and no information on the book. You should only use information currently provided for generation. You have also been provided extra context information that are only there to give you more context about the event information. CONTEXT 1 is a chapter by chapter summary of book, with the last paragraph being the chapter where the event occurs. CONTEXT 2 is a list of 10 major characters in the book. If a character from list is present in the event, include their name. You should only output the image generation prompt and nothing else. The art style should be: 'detailed fantasy storybook illustration, warm lighting, expressive' "},
         {
             "role": "user",
             "content": f"Here are the event details :\n\n"

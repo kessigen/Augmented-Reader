@@ -37,7 +37,7 @@ def upload_epub(request):
     2) Reads EPUB metadata (title/author) and stores it.
     3) Extracts a cover image (if found) into MEDIA/uploads/covers/.
     4) Extracts each document item as a Chapter (HTML content).
-    5) Runs LLM modules :
+    5) Runs LLM modules:
        - summarize_all_chapters
        - get_book_metadata (tags, synopsis, MoodList, etc.)
        - character extraction + relationship extraction
@@ -126,7 +126,7 @@ def upload_epub(request):
 
     #character_grid(3,[c.image.path for c in Character.objects.filter(book=book) if c.image])
 
-    #LLM call to character extractor module (extract relationships) 
+    #LLM call to event extractor module
     all_events= extract_events(book.id)
     save_events_to_db(book, all_events)
 
@@ -148,7 +148,7 @@ def get_books(request):
     """
     GET /api/books/
 
-    Returns a list of book attritutes for homescreen display 
+    Returns a list of book attributes for home screen display 
     Includes:
       - basic Book fields
       - absolute cover image URL for the frontend
@@ -194,7 +194,7 @@ def get_chapter(request, book_id, chapter_id):
     book = chapter.book
 
     try:
-        # Mood lookup for chapter.defaults to "dark" if missing
+        # Mood lookup for chapter. Defaults to "dark" if missing
         music=book.inferred_metadata['MoodList'][chapter_id]['mood']
     except Exception as e:
         print("Error while getting music:", repr(e)) 
@@ -217,7 +217,7 @@ def set_last_chapter(request, book_id, chapter_num):
     """
     POST /api/books/<book_id>/last_chapter/<chapter_num>/
 
-    sets pointer to last chapter read.
+    Sets pointer to last chapter read.
     """
     try:
         book = Book.objects.get(id=book_id)
@@ -347,7 +347,7 @@ def query_book(request,book_id,query):
     """
     GET /api/books/query/<int:book_id>/<str:query>/
 
-    Runs RAG/LLM question answering over the book`s content.
+    Runs RAG/LLM question answering over the book's content.
     LLM call to RAG query module.
     """
     

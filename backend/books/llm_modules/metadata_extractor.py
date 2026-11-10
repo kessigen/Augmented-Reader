@@ -5,7 +5,7 @@ from ..models import *
 
 from django.utils.html import strip_tags
 
-# OpenAI  client api
+# OpenAI client API
 from openai import OpenAI
 
 
@@ -19,21 +19,21 @@ class ChapterMood(BaseModel):
 
 class BookMetaData(BaseModel):
     """Information about a novel"""
-    main_genre:  List[str] = Field(description="list the main genres to which the book belongs to.Examples are fantasy, sci-fi, historical, ...")
-    time_period: str = Field(description="the approximate time period in which novel takes place.Examples are Victorian era, near-future, post-apocalyptic, unspecified ")
-    primary_setting :str = Field(description="a short label for the type of background or place where most of the story happens")
-    synopsis : str = Field(description="a 4 line synopsis of the story")
-    MoodList :List[ChapterMood] = Field(description="Each paragraph of summary corresponds to book chapter.One entry in list per chapter, in chapter order.")
+    main_genre:  List[str] = Field(description="List the main genres the book belongs to. Examples are fantasy, sci-fi, historical, ...")
+    time_period: str = Field(description="The approximate time period in which the novel takes place. Examples are Victorian era, near-future, post-apocalyptic, unspecified ")
+    primary_setting :str = Field(description="A short label for the type of background or place where most of the story happens")
+    synopsis : str = Field(description="A 4-line synopsis of the story")
+    MoodList :List[ChapterMood] = Field(description="Each paragraph of the summary corresponds to a book chapter. One entry in list per chapter, in chapter order.")
 
 
     
 def get_book_metadata(book_id):
     """
-    extarct structured metadata for the book content in general using its full  summary.
+    Extract structured metadata for the book content in general using its full summary.
 
     
     - Load Book from DB
-    - OpenAI API call with a the book summary as context
+    - OpenAI API call with the book summary as context
     - Parse and return the model output directly into the BookMetaData Pydantic model
 
     
@@ -46,7 +46,7 @@ def get_book_metadata(book_id):
     model="gpt-4.1-nano",
     input=[
         {"role": "system",
-          "content": f"You are an expert at analysing and extracting book information .You have been provided the chapter by chapter summary of the book {title}. Your task is to analyse the summary and logically infer book metadata from it."},
+          "content": f"You are an expert at analysing and extracting book information. You have been provided the chapter by chapter summary of the book {title}. Your task is to analyse the summary and logically infer book metadata from it."},
         {
             "role": "user",
             "content": f"Here is the book summary:\n\n {book.summary}",

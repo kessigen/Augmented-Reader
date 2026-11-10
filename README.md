@@ -1,5 +1,5 @@
 # Book Reader App 
-Link to features + eval code+ tutorial :https://drive.google.com/drive/folders/1WPHCgcoTJ9fmbo3yVLAgOuJV9nqq6AUF?usp=sharing
+Link to features + eval code + tutorial: https://drive.google.com/drive/folders/1WPHCgcoTJ9fmbo3yVLAgOuJV9nqq6AUF?usp=sharing
 ## Structure
 - `backend/` Django API
 - `frontend/` Next.js app
@@ -11,7 +11,7 @@ Link to features + eval code+ tutorial :https://drive.google.com/drive/folders/1
 ---
 
 ## Backend Setup (Django)
-# initially will be slow as it has to build all vector stores and db structures
+# Initially slow, as it has to build all vector stores and DB structures
 ```powershell
 cd backend
 python -m venv venv
@@ -23,11 +23,13 @@ Copy-Item .env.example .env
 
 python manage.py migrate
 python manage.py runserver
+```
 
-
-## Frontend  Setup (Django)
-#in another terminal do:
+## Frontend Setup (Next.js)
+In another terminal:
+```powershell
 cd frontend
 npm install
 
 npm run dev
+```

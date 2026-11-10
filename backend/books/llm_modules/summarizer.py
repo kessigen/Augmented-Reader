@@ -1,5 +1,5 @@
  
-# We use the openAI langchain API for text summarizer tool
+# We use the OpenAI LangChain API for text summarizer tool
 from langchain.chat_models import init_chat_model
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
@@ -28,7 +28,7 @@ def summarize_all_chapters(book_id):
           * append it to the running summary
       - Return the final combined summary text
 
-      Note :This iterative refinement process passes as context to LLM ALL previous chapters.Simply passing the last 2-3 chapters as context does not work since book progression to current chapter is not linear.
+      Note: This iterative refinement process passes ALL previous chapters to the LLM as context. Simply passing the last 2-3 chapters as context does not work since book progression to current chapter is not linear.
 
     """
     try:

@@ -19,9 +19,9 @@ class Book(models.Model):
     last_chapter_visited = models.IntegerField(default=1)
     # whole book summary
     summary = models.TextField(default='')
-    #JSON object containing all metadat on book
+    # JSON object containing all metadata on the book
     inferred_metadata =models.JSONField(default=dict, blank=True)
-    #charcter relationship information
+    # Character relationship information
     relationships = models.JSONField(default=dict, blank=True)
 
 
@@ -32,7 +32,7 @@ class Book(models.Model):
 
 class Chapter(models.Model):
     """
-    Represents one chapterextracted from the EPUB. A book has many chapters
+    Represents one chapter extracted from the EPUB. A book has many chapters.
     
     """
 
@@ -46,8 +46,8 @@ class Chapter(models.Model):
     
 class Event(models.Model):
     """
-    Represents an extracted event inside a chapter.A chaper has many events.Events ordered by
-    uniue (chapter, number)
+    Represents an extracted event inside a chapter. A chapter has many events. Events are ordered by
+    unique (chapter, number).
     """
     chapter = models.ForeignKey(Chapter, on_delete=models.CASCADE, related_name='events')
     number= models.PositiveIntegerField()

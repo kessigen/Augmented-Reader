@@ -10,7 +10,7 @@ from django.utils.html import strip_tags
 from .serializers import CharacterSerializer
 #from PIL import Image, ImageDraw, ImageFont
 
-#import  llm moduless
+# Import LLM modules
 from books.llm_modules.summarizer import *
 
 # import model for character object
@@ -28,10 +28,10 @@ def save_characters_to_db(book, character_list):
 
     For each character:
       - get_or_create new character into DB 
-      - store  field attributes  with  fallbacks (role, age, personality, etc.)
+      - store field attributes with fallbacks (role, age, personality, etc.)
       - generate an image if the row was just created or the row exists but has no image yet
     """
-    #imported inside to avoid circular import error
+    # Imported inside to avoid circular import error
     from books.llm_modules.image_gen import generate_character_image
 
     for ci in character_list.Characters:
@@ -88,7 +88,7 @@ def edit_chapter(chapter,event,event_index):
     """
     Inserts an HTML placeholder into a chapter at the paragraph indicated by event.last_paragraph.
     Currently all paragraphs in chapter have paragraph number. This number is used to identify pointers for event scenes.
-    Once anchors for event are added, extra paragraph index are removed.This  lets the frontend  locate event anchors and swap for scene image generation
+    Once event anchors are added, the extra paragraph indices are removed. This lets the frontend locate event anchors and swap them for scene image generation.
 
     - append a div placeholder inside the target <p>:
         <div id="ev{event_index}">PLACEHOLDER FOR IMAGE {event_index}</div>
@@ -120,7 +120,7 @@ def edit_chapter(chapter,event,event_index):
 
 def get_chapter_summary(book_id, chapter_id):
     """
-    Returns a "summary up to this chapter" text. Just truncates the full text summary (which was already generasted during upload time) up to current chapter
+    Returns a "summary up to this chapter" text. Just truncates the full text summary (which was already generated at upload time) up to the current chapter
     """
 
     book = Book.objects.get(id=book_id)

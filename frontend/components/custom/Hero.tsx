@@ -21,7 +21,7 @@ export function Hero({ book }: any) {
               >
                 <CardContent className="flex flex-col justify-end items-start gap-2  pt-30 h-full text-white">
                   <p className="text-3xl text-bold">
-                    {book?.title ?? "Alice In WonderLand"}
+                    {book?.title ?? "Alice in Wonderland"}
                   </p>
                   <TagBadges
                     tags={book?.tags ?? ["Fantasy", "Literature"]}

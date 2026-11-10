@@ -104,7 +104,7 @@ export default function Home() {
                   />
                 }
                 {
-                // Animate cards into 
+                // Animate cards into view
                 [
                   AllBooks
                     ? AllBooks.map((book, i) => (
