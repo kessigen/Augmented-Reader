@@ -1,17 +1,7 @@
-import os
-from django.conf import settings
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-from rest_framework import status
 from .models import Book,Chapter,Event
 
 from bs4 import BeautifulSoup
-from django.utils.html import strip_tags
-from .serializers import CharacterSerializer
 #from PIL import Image, ImageDraw, ImageFont
-
-# Import LLM modules
-from books.llm_modules.summarizer import *
 
 # import model for character object
 from .models import Character as CharacterModel

@@ -7,9 +7,7 @@ from .models import Book,Chapter,Character
 from ebooklib import epub
 from bs4 import BeautifulSoup
 import ebooklib
-from django.utils.html import strip_tags
 from .serializers import CharacterSerializer
-from openai import OpenAI
 
 
 # importing LLM modules

@@ -2,7 +2,6 @@ from pydantic import BaseModel, Field
 from typing import Literal, List
 from ..models import *
 from langchain.chat_models import init_chat_model
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from django.utils.html import strip_tags
 
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { GraphCanvas, type GraphNode, type GraphEdge } from "reagraph";
 
 type Props = { bookId: number };

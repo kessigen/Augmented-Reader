@@ -2,9 +2,6 @@ from pydantic import BaseModel, Field
 from typing import Literal, List
 from ..models import *
 
-
-from django.utils.html import strip_tags
-
 # OpenAI client API
 from openai import OpenAI
 

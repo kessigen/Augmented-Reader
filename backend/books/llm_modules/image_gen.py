@@ -1,7 +1,6 @@
 import base64
 from django.core.files.base import ContentFile
 from openai import OpenAI
-import base64
 from django.conf import settings
 import os
 from ..models import *

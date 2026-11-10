@@ -1,7 +1,5 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
 import "./UploadButton.css";
 
 export default function BookCard({ onClick }: any) {

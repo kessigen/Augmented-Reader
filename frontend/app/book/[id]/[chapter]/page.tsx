@@ -1,7 +1,7 @@
 "use client";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,17 +11,8 @@ import BackButton from "@/components/custom/BackButton";
 import PopChat from "@/components/custom/PopChat";
 import BookSummaryPopup from "@/components/custom/BookSummaryPopup";
 import Link from "next/link";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
-import parse, { domToReact } from "html-react-parser";
-import { Music } from "lucide-react";
+import parse from "html-react-parser";
 import MusicButton from "@/components/custom/MusicButton";
 import RelationshipGraph from "@/components/custom/RelationshipGraph";
 import CharacterSheet from "@/components/custom/CharacterSheet";

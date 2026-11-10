@@ -1,12 +1,11 @@
-import os
 from langchain.chat_models import init_chat_model
 
 
 # LangChain is used to create the book assistant agent
 
-from langchain.agents import AgentState, create_agent
+from langchain.agents import create_agent
 from langchain.agents.middleware import dynamic_prompt, ModelRequest
-from langchain_core.messages import HumanMessage, AIMessage
+from langchain_core.messages import HumanMessage
 
 # Chroma is used as the vector DB
 from langchain_chroma import Chroma

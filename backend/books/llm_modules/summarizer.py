@@ -1,8 +1,6 @@
  
 # We use the OpenAI LangChain API for text summarizer tool
 from langchain.chat_models import init_chat_model
-from langchain_openai import ChatOpenAI
-from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 
 
 from django.utils.html import strip_tags

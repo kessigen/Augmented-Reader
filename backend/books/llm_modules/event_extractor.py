@@ -1,6 +1,6 @@
 
 from pydantic import BaseModel, Field
-from typing import Literal, List
+from typing import List
 from ..models import *
 from bs4 import BeautifulSoup
 from openai import OpenAI
