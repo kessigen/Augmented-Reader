@@ -56,12 +56,11 @@ On clicking the play button, the scene generation tool displays an image of scen
 
 ## What Problem Does It Solve?
 
-### The Problem:
 
 - For many young people, interactive forms of entertainment make traditional book reading feel boring by comparison.
 - Amateur authors who publish online or write as a hobby find it hard to stand out compared to professional authors .
 
-### Solution:
+
 
 **Augmented Reader** addresses these challenges by:
 
