@@ -29,4 +29,4 @@ Generated chapter summaries compared with SparkNotes chapter summaries.
 
 The SparkNotes summaries are not included since they are copyrighted. The input CSVs used by the notebooks are also not included.
 
-To run RAGEval.ipynb, set OPENAI_API_KEY as an environment variable (the notebook will ask for it otherwise).
+To run RAGEval.ipynb, set OPENAI_API_KEY as an environment variable .
